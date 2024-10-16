@@ -1,0 +1,557 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Body styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Light background for the entire page */
+}
+
+.header {
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+}
+
+/* Active section (currently visible) */
+.header.active {
+    transform: translateX(0); /* Move the section into view */
+    opacity: 1; /* Make section visible */
+    z-index: 1; /* Ensure the active section is on top */
+    display: block; /* Ensure it's visible */
+}
+
+/* Slide left (when sliding out) */
+.header.slide-left {
+    transform: translateX(-100%); /* Slide out to the left */
+    opacity: 0; /* Fade out */
+    z-index: 0; /* Make sure it's behind */
+}
+
+/* Slide right (when sliding in) */
+.header.slide-right {
+    transform: translateX(100%); /* Slide in from the right */
+    opacity: 1; /* Fade in */
+    z-index: 1; /* Bring to the front */
+}
+
+/* Autoexperten Header styles */
+.autoexperten {
+    background-image: url('IMG_7704.JPG'); /* Replace with your Autoexperten background image */
+    background-size: cover;
+    background-position: center;
+}
+
+/* Classic Garage Header styles */
+.classic-garage {
+    background-image: url('IMG_7677.JPG'); /* Replace with your Classic Garage background image */
+    background-size: cover;
+    background-position: center;
+}
+
+/* Overlay for better text visibility */
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+    z-index: 1; /* Position the overlay below the text */
+}
+
+/* Header text styles */
+.header h1 {
+    position: relative; /* Position relative to the header */
+    z-index: 2; /* Position above the overlay */
+    font-size: 3rem; /* Header font size */
+    margin-bottom: 20px; /* Space below header */
+}
+
+.header p {
+    position: relative; /* Position relative to the header */
+    z-index: 2; /* Position above the overlay */
+    font-size: 1.5rem; /* Paragraph font size */
+}
+
+/* Navbar styles */
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 0;
+    position: relative;
+    z-index: 10; /* Ensure navbar stays above content */
+}
+
+/* Navbar links */
+.navbar a {
+    margin: 0 20px; /* Space between links */
+    text-decoration: none; /* Remove underline from links */
+    color: white; /* Link color */
+    font-size: 18px; /* Font size for links */
+}
+/* Dropdown Container */
+.dropdown {
+    position: relative; /* Position relative for the dropdown content */
+}
+
+/* Dropdown button */
+.dropbtn {
+    background-color: #3f3f3f; /* Green background */
+    color: white; /* White text */
+    padding: 10px 16px; /* Space inside the button */
+    font-size: 16px; /* Font size */
+    border: none; /* Remove borders */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none; /* Hidden by default */
+    position: absolute; /* Position it below the dropdown button */
+    background-color: #f9f9f9; /* White background */
+    min-width: 160px; /* Minimum width */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Add shadow */
+    z-index: 10; /* Stack on top */
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black; /* Black text for links */
+    padding: 12px 16px; /* Space inside links */
+    text-decoration: none; /* Remove underline from links */
+    display: block; /* Make links fill the width */
+}
+
+/* Change color on hover */
+.dropdown-content a:hover {
+    background-color: #f1f1f1; /* Light gray on hover */
+}
+
+/* Show the dropdown on hover */
+.dropdown:hover .dropdown-content {
+    display: block; /* Show the dropdown on hover */
+}
+
+.dropdown-content a {
+    animation: fadeInRight 0.4s forwards; /* Apply animation on load */
+}
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(-20px); /* Start off-screen */
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0); /* Slide into position */
+    }
+}
+/* Logo styles */
+.logo img {
+    height: 50px; /* Adjust the size of the logos */
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover img {
+    transform: scale(1.1); /* Slightly enlarge the logos on hover */
+}
+
+/* Burger Menu Styles */
+.burger-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 20px;
+    position: relative;
+}
+
+.burger-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 24px;
+    padding: 0;
+}
+
+.burger-btn .bar {
+    width: 100%;
+    height: 4px;
+    background-color: white;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+
+/* Burger Menu Dropdown */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 40px; /* Position the dropdown below the burger menu */
+    background-color: white;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 20;
+    min-width: 160px;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: height 0.3s ease; /* Smooth transition for height */
+}
+
+/* Dropdown links */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.burger-menu.active .dropdown-content {
+    display: block;
+}
+/* Content styles */
+.content {
+    padding: 50px; /* Space inside the content area */
+    text-align: center; /* Center text in the content */
+    height: 100vh; /* Full height for demo */
+}
+
+/* Text styles */
+.text-container {
+    margin: 20px auto; /* Center the text container */
+}
+
+/* Footer styles (optional) */
+.footer {
+    text-align: center; /* Center footer text */
+    padding: 20px; /* Space inside footer */
+    background-color: #333; /* Dark background for footer */
+    color: white; /* Footer text color */
+    display: flex;
+}
+/* Booking Form Styles */
+.booking-form {
+    height: 900px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 400px; /* Set a fixed width for the form */
+    display: flex;
+    flex-direction: column;
+    margin: auto; /* Center the form */
+}
+
+.booking-form input,
+.booking-form select,
+.booking-form button {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.booking-form button {
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.booking-form button:hover {
+    background-color: #555; /* Darker shade on hover */
+}
+
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .booking-form {
+        width: 90%; /* More responsive width for smaller screens */
+        padding: 15px; /* Adjust padding for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .booking-form {
+        width: 95%; /* Even more responsive for very small devices */
+        padding: 10px; /* Less padding for small screens */
+    }
+
+    .booking-form input,
+    .booking-form select,
+    .booking-form button {
+        font-size: 14px; /* Smaller font for mobile devices */
+    }
+}
+
+/* Rounded Text Box Styles */
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    height: 100%; /* Full height of the container */
+}
+.rounded-text-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    height: 100%; /* Full height of the container */
+    background-color: #ffffff; /* White background for the text box */
+    border: 2px solid #ccc; /* Light gray border */
+    border-radius: 15px; /* Rounded edges */
+    padding: 20px; /* Inner padding */
+    margin-bottom: 20px; /* Space below the text box */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+    text-align: center; /* Center text inside the box */
+    width: 100%; /* Full width */
+    max-width: 600px; /* Max width for larger screens */
+}
+
+/* Styles for headings inside the text box */
+.rounded-text-box h2 {
+    font-family:sans-serif
+    
+   
+}
+
+/* Styles for paragraphs inside the text box */
+.rounded-text-box p {
+    font-family:sans-serif
+    
+    
+}
+.rounded-text-box h1{
+    font-family:sans-serif
+    
+   
+}
+.rounded-text-box li{
+    font-family: sans-serif
+    
+
+}
+
+.text-container{
+    background-color: #ffffff; /* Hvid baggrund for sektionen */
+    border: 2px solid #ccc; /* Lys grå kant */
+    border-radius: 15px; /* Runde kanter */
+    padding: 20px; /* Indvendig polstring */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtil skyggeeffekt */
+    max-width: 600px; /* Maksimal bredde for sektionen */
+    margin: 20px auto; /* Center sektionen horisontalt */
+    text-align: left; /* Juster teksten til venstre */
+}
+.text-container h1{
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    color: #c46f00; /* Dark blue color */
+}
+.text-container h2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    color: #414141; /* Dark blue color */
+}
+.info-page {
+    max-width: 800px; /* Maximum width for the content */
+    margin: 20px auto; /* Center content horizontally */
+    padding: 20px; /* Padding around the content */
+    font-family: 'Arial', sans-serif; /* Font for the page */
+    text-align: left; /* Left-align text */
+}
+
+.info-page h1 {
+    font-size: 32px; /* Main title size */
+    color: #2c3e50; /* Dark blue color */
+    margin-bottom: 20px; /* Space below the title */
+}
+
+.info-box {
+    background-color: #ffffff; /* White background for boxes */
+    border: 2px solid #ccc; /* Light gray border */
+    border-radius: 15px; /* Rounded corners */
+    padding: 20px; /* Padding inside the box */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Shadow effect for depth */
+    margin-bottom: 20px; /* Space between boxes */
+}
+
+.info-box h2 {
+    font-size: 24px; /* Subtitle size */
+    color: #e74c3c; /* Red color for the subtitles */
+    margin-bottom: 10px; /* Space below the subtitle */
+}
+
+.info-box p {
+    font-size: 18px; /* Text size for content */
+    color: #34495e; /* Dark gray color for text */
+}
+.content-info {
+    
+    text-align: center; /* Center text in the content */
+    color: #c46f00; /* Dark blue color */ 
+}
+.info-page {
+    height: 900px;
+    text-align: center;
+}
+
+.work-section {
+    background-color: #eaeaea; /* Lys grå baggrund for arbejdssektionen */
+    padding: 40px; /* Polstring omkring sektionen */
+    border: 2px solid #8b4513; /* Brun kant for rusten effekt */
+    border-radius: 15px; /* Rundede hjørner */
+    margin: 20px auto; /* Centrer sektionen */
+    max-width: 1200px; /* Maksimal bredde for sektionen */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Skygge for dybde */
+}
+
+.work-section h1 {
+    text-align: center; /* Centrer titel */
+    color: #8b4513; /* Mørk brun farve til titlen */
+    margin-bottom: 30px; /* Plads under titlen */
+}
+
+.work-gallery {
+    display: flex; /* Flexbox til at arrangere billeder */
+    flex-wrap: wrap; /* Wrap billederne til næste linje ved behov */
+    justify-content: space-around; /* Plads imellem billederne */
+}
+
+.work-item {
+    background-color: #fff; /* Hvid baggrund for hver arbejdsitem */
+    border: 1px solid #ccc; /* Lys grå kant */
+    border-radius: 10px; /* Rundede hjørner */
+    margin: 10px; /* Plads mellem elementerne */
+    overflow: hidden; /* Klipper overskydende indhold */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Let skygge */
+    width: 30%; /* Bredde på hvert element */
+}
+
+.work-item img {
+    width: 100%; /* Gør billedet 100% bredde af containeren */
+    height: auto; /* Bevarer billedets proportioner */
+}
+
+.work-description {
+    padding: 15px; /* Polstring inde i beskrivelsen */
+}
+
+.work-description h2 {
+    font-size: 20px; /* Størrelse på overskriften i beskrivelsen */
+    color: #8b4513; /* Mørk brun farve til beskrivelsens overskrift */
+}
+
+.work-description p {
+    font-size: 16px; /* Størrelse på teksten i beskrivelsen */
+    color: #555; /* Mørk grå farve til teksten */
+}
+.autoexperten-work-section {
+    border: 2px solid #000000;
+    background-color: #ffffff; /* Lys grå baggrund for sektionen */
+    padding: 40px; /* Polstring omkring sektionen */
+    border-radius: 15px; /* Rundede hjørner */
+    margin: 20px auto; /* Centrer sektionen */
+    max-width: 1200px; /* Maksimal bredde for sektionen */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Skygge for dybde */
+}
+
+.autoexperten-work-section h1 {
+    text-align: center; /* Centrer titel */
+    color: #2c3e50; /* Mørk blå farve til titlen */
+    margin-bottom: 30px; /* Plads under titlen */
+    
+}
+
+.work-gallery {
+    display: flex; /* Flexbox til at arrangere billeder */
+    flex-wrap: wrap; /* Wrap billederne til næste linje ved behov */
+    justify-content: space-between; /* Plads imellem billederne */
+}
+
+.work-item {
+    background-color: #fff; /* Hvid baggrund for hver arbejdsitem */
+    border: 1px solid #ccc; /* Lys grå kant */
+    border-radius: 10px; /* Rundede hjørner */
+    margin-bottom: 20px; /* Plads mellem elementerne */
+    overflow: hidden; /* Klipper overskydende indhold */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Let skygge */
+    width: 30%; /* Bredde på hvert element */
+    transition: transform 0.2s; /* Smooth transition for hover effect */
+}
+
+.work-item:hover {
+    transform: scale(1.05); /* Forstørrelse ved hover */
+}
+
+.work-item img {
+    width: 100%; /* Gør billedet 100% bredde af containeren */
+    height: auto; /* Bevarer billedets proportioner */
+}
+
+.work-description {
+    padding: 15px; /* Polstring inde i beskrivelsen */
+}
+
+.work-description h2 {
+    font-size: 20px; /* Størrelse på overskriften i beskrivelsen */
+    color: #e74c3c; /* Rød farve til beskrivelsens overskrift */
+    margin-bottom: 10px; /* Plads under beskrivelsens overskrift */
+}
+
+.work-description p {
+    font-size: 16px; /* Størrelse på teksten i beskrivelsen */
+    color: #555; /* Mørk grå farve til teksten */
+}
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    .work-item {
+        width: 100%; /* Full width on small screens */
+        margin: 10px 0; /* Margin between items */
+    }
+
+    .work-gallery {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center align items */
+    }
+
+    .autoexperten-work-section {
+        padding: 20px; /* Reduced padding on smaller screens */
+    }
+
+    .autoexperten-work-section h1 {
+        font-size: 24px; /* Adjust title size for smaller screens */
+    }
+}
+
+.logo {
+    width: 100px;  /* Adjust the width as needed */
+    height: auto;
+    display: inline-block;  /* Ensure the display is set correctly */
+    cursor: pointer;
+}

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"> <!-- Link to your CSS file -->
+    <title>Your Website Title</title>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+    <a href="#" id="autoexperten-logo">
+        <img src="autoexperten.png" alt="Autoexperten Logo" class="logo"> <!-- Adjust path -->
+    </a>
+    
+    
+    <!-- Hamburger Menu -->
+    <div class="burger-menu">
+        <button class="burger-btn" id="burger-btn">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </button>
+
+        <!-- Dropdown Content -->
+        <div class="dropdown-content" id="dropdown-content">
+            <a href="Index.html">Hjem</a>
+            <a href="Arbejde.html">Vores Arbejde</a>
+            <a href="autoexperten.html">Service</a>
+            <a href="classic-garage.html">info</a>
+        </div>
+    </div>
+
+
+    <a href="#" id="classic-garage-logo">
+        <img src="Classic_Garage_Logo__1_-1-removebg.png" alt="Classic Garage Logo" class="logo"> <!-- Adjust path -->
+    </a>
+</nav>
+
+<!-- Autoexperten Section -->
+<div id="autoexperten-section" class="header autoexperten">
+    <h1>Welcome to Autoexperten</h1>
+    <p>Your trusted auto service provider</p>
+</div>
+
+<!-- Classic Garage Section -->
+<div id="classic-garage-section" class="header classic-garage" style="display: none;">
+    <h1>Welcome to Classic Garage</h1>
+    <p>Your classic car restoration experts</p>
+</div>
+
+<!-- Content Section -->
+<div class="content">
+    <div id="autoexperten-content" class="text-container" style="display: block;">
+        <h1>Autoexperten</h1>
+        <h2>Din partner i bilservice og reparation</h2>
+        <div class="rounded-text-box">
+        <li><strong>Omfattende Bilservice:</strong> Vi tilbyder komplette servicepakker, der dækker alt fra olieændringer til større reparationer.</li></div>
+        <div class="rounded-text-box">          
+        <li><strong>Fejlfinding og Reparation:</strong> Vores teknikere har den nødvendige ekspertise til at diagnosticere og reparere alle typer problemer.</li></div>
+        <div class="rounded-text-box">                   
+        <li><strong>Dæk og Bremser:</strong> Vi sørger for, at dine dæk og bremser fungerer optimalt for din sikkerhed.</li></div>
+        <div class="rounded-text-box">            
+        <li><strong>Service med Et Smil:</strong> Vi sætter pris på vores kunder og tilbyder en venlig og personlig service hver gang.</li></div>
+                
+                
+            
+                <p><strong>Besøg Autoexperten i dag og lad os tage os af din bil!</strong></p>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+    <div id="classic-garage-content" class="text-container" style="display: block;">
+            <h1>Classic Garage</h1>
+            <h2>Din ekspert i veteran- og klassiske biler</h2>
+                <div class="rounded-text-box">
+                <li><strong>Specialiseret Restaurering:</strong> Vi tilbyder omfattende restaurering af veteran- og klassiske biler, fra karrosseriarbejde til motorrenovering.</li></div>
+                <div class="rounded-text-box">
+                <li><strong>Vedligeholdelse og Reparation:</strong> Regelmæssig vedligeholdelse er nøglen til at holde din bil i topform. Vi tilbyder skræddersyede servicepakker, der passer til din bils behov.</li></div>
+                <div class="rounded-text-box">
+                <li><strong>Kundens Behov i Fokus:</strong> Vi arbejder tæt sammen med vores kunder for at sikre, at deres visioner bliver realiseret. Din tilfredshed er vores højeste prioritet.</li></div>
+                <div class="rounded-text-box">
+                <li><strong>Erfaring og Passion:</strong> Vores team har mange års erfaring med klassiske biler og en dybdegående viden om, hvad der kræves for at bevare deres skønhed og funktionalitet.</li></div>
+                
+        
+            <p>
+                <strong>Besøg Classic Garage i dag og lad os hjælpe dig med at bevare din klassiske bils historie!</strong></p>
+    </div>
+</div>
+</div>
+<!-- Footer Section -->
+<footer class="footer">
+    <p>&copy; 2024 Autoexperten / Classic Garage. All rights reserved.</p>
+</footer>
+
+<script>
+    const burgerBtn = document.getElementById("burger-btn");
+    const dropdownContent = document.getElementById("dropdown-content");
+
+    burgerBtn.addEventListener("click", function() {
+        if (dropdownContent.style.display === "block") {
+            dropdownContent.style.display = "none";
+        } else {
+            dropdownContent.style.display = "block";
+        }
+    });
+</script>
+
+
+<!-- JavaScript -->
+<script>
+    // Function to switch between sections
+    function showSection(sectionId, contentId) {
+        // Hide both sections
+        document.getElementById('autoexperten-section').style.display = 'none';
+        document.getElementById('classic-garage-section').style.display = 'none';
+
+        // Hide both content areas
+        document.getElementById('autoexperten-content').style.display = 'none';
+        document.getElementById('classic-garage-content').style.display = 'none';
+
+        // Show the selected section and content
+        document.getElementById(sectionId).style.display = 'block';
+        document.getElementById(contentId).style.display = 'block';
+    }
+
+    // Event listeners for logos
+    document.getElementById('autoexperten-logo').addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent default anchor behavior
+        showSection('autoexperten-section', 'autoexperten-content'); // Show Autoexperten section
+    });
+
+    document.getElementById('classic-garage-logo').addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent default anchor behavior
+        showSection('classic-garage-section', 'classic-garage-content'); // Show Classic Garage section
+    });
+
+    // Show the Autoexperten section by default
+    showSection('autoexperten-section', 'autoexperten-content');
+</script>
+
+</body>
+</html>

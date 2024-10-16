@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"> <!-- Link to your CSS file -->
+    <title>Your Website Title</title>
+
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+    <a href="#" id="autoexperten-logo">
+        <img src="autoexperten.png" alt="Autoexperten Logo" class="logo"> <!-- Adjust path -->
+    </a>
+    
+    
+    <!-- Hamburger Menu -->
+    <div class="burger-menu">
+        <button class="burger-btn" id="burger-btn">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </button>
+
+        <!-- Dropdown Content -->
+        <div class="dropdown-content" id="dropdown-content">
+            <a href="Index.html">Hjem</a>
+            <a href="Arbejde.html">Vores Arbejde</a>
+            <a href="autoexperten.html">Service</a>
+            <a href="classic-garage.html">info</a>
+        </div>
+    </div>
+
+
+    <a href="#" id="classic-garage-logo">
+        <img src="Classic_Garage_Logo__1_-1-removebg.png" alt="Classic Garage Logo" class="logo"> <!-- Adjust path -->
+    </a>
+</nav>
+
+<!-- Content Section -->
+<div class="content">
+    <h1>Vores Arbejde</h1>
+    <section class="work-section">
+        <h1>Classic Garage</h1>
+        <div class="work-gallery">
+            <div class="work-item">
+                
+                <div class="work-description">
+                    <h2>Veteranbil Renovering</h2>
+                    <p>Vi specialiserer os i renovering af klassiske veteranbiler. Vores team har mange års erfaring og passion for biler.</p>
+                    <img src="IMG_7077.JPG" alt="Veteranbil 1"> <!-- Erstat med dit billede -->
+                </div>
+            </div>
+            <div class="work-item">
+                <div class="work-description">
+                    <h2>Klassisk Bil Tuning</h2>
+                    <p>Tuning af klassiske biler for optimal præstation og stil. Vi tilbyder skræddersyede løsninger til hver kunde.</p>
+                    <img src="IMG_3867.JPG" alt="Veteranbil 2"> <!-- Erstat med dit billede -->
+                </div>
+            </div>
+            <div class="work-item">
+                <div class="work-description">
+                    <h2>Restaurering af Udstyr</h2>
+                    <p>Vi restaurerer udstyr og tilbehør til klassiske biler for at bevare den autentiske stil og funktionalitet.</p>
+                    <img src="IMG_3782.JPG" alt="Veteranbil 3"><img src="IMG_3783.JPG" alt="Veteranbil 3"> <!-- Erstat med dit billede -->
+                </div>
+            </div>
+        </div>
+    </section>   
+    <section class="autoexperten-work-section">
+        <h1>Autoexperten</h1>
+        <div class="work-gallery">
+            <div class="work-item">
+                <img src="IMG_7698.JPG" alt="Autoexperten Bilservice"> <!-- Erstat med dit billede -->
+                <div class="work-description">
+                    <h2>Diagnose af bil</h2>
+                    <p>Med vores proffesionelle diagnose tester, kan vi med sikkerhed finde den fejl, din bil går og bære på.</p>
+                </div>
+            </div>
+            <div class="work-item">
+                <img src="IMG_7661.JPG" alt="Autoexperten Reparation"> <!-- Erstat med dit billede -->
+                <div class="work-description">
+                    <h2>Reparation og Vedligeholdelse</h2>
+                    <p>Vores erfarne teknikere sikrer, at din bil er i topform med regelmæssig vedligeholdelse.</p>
+                </div>
+            </div>
+            <div class="work-item">
+                <img src="image/classic garage/94500444.jpg" alt="Autoexperten Tuning"> <!-- Erstat med dit billede -->
+                <div class="work-description">
+                    <h2>Aircon</h2>
+                    <p>På vores værksted kan du få lavet aircon, så bliver inde klimaet i bilen meget bedre.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+<script>
+    const burgerBtn = document.getElementById("burger-btn");
+    const dropdownContent = document.getElementById("dropdown-content");
+
+    burgerBtn.addEventListener("click", function() {
+        if (dropdownContent.style.display === "block") {
+            dropdownContent.style.display = "none";
+        } else {
+            dropdownContent.style.display = "block";
+        }
+    });
+</script>
+
+
+<!-- JavaScript -->
+<script>
+    // Function to switch between sections
+    function showSection(sectionId, contentId) {
+        // Hide both sections
+        document.getElementById('autoexperten-section').style.display = 'none';
+        document.getElementById('classic-garage-section').style.display = 'none';
+
+        // Hide both content areas
+        document.getElementById('autoexperten-content').style.display = 'none';
+        document.getElementById('classic-garage-content').style.display = 'none';
+
+        // Show the selected section and content
+        document.getElementById(sectionId).style.display = 'block';
+        document.getElementById(contentId).style.display = 'block';
+    }
+
+    // Event listeners for logos
+    document.getElementById('autoexperten-logo').addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent default anchor behavior
+        showSection('autoexperten-section', 'autoexperten-content'); // Show Autoexperten section
+    });
+
+    document.getElementById('classic-garage-logo').addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent default anchor behavior
+        showSection('classic-garage-section', 'classic-garage-content'); // Show Classic Garage section
+    });
+
+    // Show the Autoexperten section by default
+    showSection('autoexperten-section', 'autoexperten-content');
+</script>
+<footer class="footer">
+    <p>&copy; 2024 Autoexperten / Classic Garage. All rights reserved.</p>
+</footer>
+</body>
+</html>
